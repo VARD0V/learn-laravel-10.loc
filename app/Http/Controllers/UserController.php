@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\ApiException;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,7 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $user = new User($request->all());
+        $user->role_id = Role::where('code', 'user')->first()->id;
         $user->save();
         return response()->json($user)->setStatusCode(201, 'Created');
     }

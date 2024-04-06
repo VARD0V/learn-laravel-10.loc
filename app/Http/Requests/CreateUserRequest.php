@@ -27,7 +27,6 @@ class CreateUserRequest extends ApiRequest
             'patronymic'    => 'nullable|string|min:2|max:32',
             'login'         => 'required|string|min:3|max:32|unique:users, login',
             'password'      => 'required|string|min:3|max:32',
-            'role_id'      => 'required|integer|exists:roles,id',
         ];
     }
 }

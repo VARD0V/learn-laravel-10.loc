@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 32);
             $table->string('patronymic', 32)->nullable();
             $table->string('login', 32)->unique();
-            $table->string('password', 32);
+            $table->string('password');
             $table->string('token', )->unique()->nullable();
             $table->foreignId('role_id', )->constrained('roles', 'id')->onUpdate('cascade');;
             $table->timestamps();
